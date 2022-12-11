@@ -114,10 +114,10 @@ public class WordTree
    return;
   else
   {
-   display(node.Right);
+   display(node.Left);
    if (node.Word!=""||node.Meaning!="")
     System.out.println(node.Word+": "+node.Meaning);
-   display(node.Left);
+   display(node.Right);
   }
  }
 
@@ -170,7 +170,6 @@ public class WordTree
    if (word == null && meaning==null) {
     break;
    }
-   Root = addNewNode(Root, word, meaning);
   }
   infile.close();
  }

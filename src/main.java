@@ -8,11 +8,11 @@ class Dictionary
  public Dictionary()
  {
   ListSize=new int[26];
-  for (char namecount=97;namecount<=122;namecount++)  
+  for (char namecount=65;namecount<=90;namecount++)
   {
    String name=namecount+"";
-   WordList[namecount-97]=new WordTree(name);
-   ListSize[namecount-97]=0;
+   WordList[namecount-65]=new WordTree(name);
+   ListSize[namecount-65]=0;
   }
  }
 
@@ -89,9 +89,23 @@ class Dictionary
   {
    String filename=WordList[index].Name;
    filename=filename.concat(".txt");
+
    File checkfile=new File(filename);
-   if (checkfile.exists())
-    WordList[index].loadTree();
+   if (checkfile.exists()){
+    BufferedReader infile = new BufferedReader(new FileReader(filename));
+
+    String meaning="Test", word="test";
+    while (!(word.compareTo("null") == 0)) {
+     word = infile.readLine();
+     meaning = infile.readLine();
+     if (word == null && meaning==null) {
+      break;
+     }
+     WordList[getIndex(word)].addEntry(word,meaning);
+     ListSize[getIndex(word)]++;
+    }
+    infile.close();
+    WordList[index].loadTree();}
   }
    System.out.println("Dictionary has been loaded");
  }
@@ -131,25 +145,25 @@ public class main
  {
   Dictionary dict=new Dictionary();
   char option;
-  dict.loadWordMeaning();
 
   System.out.print("\t\t\t\t ---------FAST DICTONARY--------- \t\t\t\t");
-
-  System.out.print("\n\t\t\t\t\t\tWhat do you want to do today ?\t\t\t\t\t");
+  System.out.println();
+  dict.loadWordMeaning();
+  System.out.print("\n\t\t\t\t\tWhat do you want to do today ?\t\t\t\t\t");
   System.out.print("\n");
   do
   {
    System.out.println();
-   System.out.println("\t\t\t\t\t\t\tPress 'I' :\n\t\t\t\t\tTo insert a new word-meaning\t\t\t");
-   System.out.println("\t\t\t\t\t\t\tPress 'D' :\n\t\t\t\t\t To Delete a word-meaning\t\t\t");
-   System.out.println("\t\t\t\t\t\t\tPress 'F' :\n\t\t\t\t\t To find a word meaning\t\t\t");
-   System.out.println("\t\t\t\t\t\t\tPress 'T' :\n\t\t\t\t\t To view a word tree\t\t\t");
-   System.out.println("\t\t\t\t\t\t\tPress 'E' :\n\t\t\t\t\t To view the entire dictionary\t\t\t");
-   System.out.println("\t\t\t\t\t\t\tPress 'S' :\n\t\t\t\t\t To save the dictionary\t\t\t");
-   System.out.println("\t\t\t\t\t\t\tPress 'N' :\n\t\t\t\t\t To view the enties in word tree\t\t\t");
-   System.out.println("\t\t\t\t\t\t\tPress 'X' :\n\t\t\t\t\t\t\t To exit\t\t\t");
+   System.out.println("\t\t\tPress 'I' :\n\t\t\t\t\t To insert a new word-meaning\t\t\t");
+   System.out.println("\t\t\tPress 'D' :\n\t\t\t\t\t To Delete a word-meaning\t\t\t");
+   System.out.println("\t\t\tPress 'F' :\n\t\t\t\t\t To find a word meaning\t\t\t");
+   System.out.println("\t\t\tPress 'T' :\n\t\t\t\t\t To view a word tree\t\t\t");
+   System.out.println("\t\t\tPress 'E' :\n\t\t\t\t\t To view the entire dictionary\t\t\t");
+   System.out.println("\t\t\tPress 'S' :\n\t\t\t\t\t To save the dictionary\t\t\t");
+   System.out.println("\t\t\tPress 'N' :\n\t\t\t\t\t To view the enties in word tree\t\t\t");
+   System.out.println("\t\t\tPress 'X' :\n\t\t\t\t\t To exit\t\t\t");
    System.out.println();
-   System.out.print("\t\t\t\t\t\t Enter an option : ");
+   System.out.print(" Enter an option: ");
    option=read.GetChar();
    read.FlushInput();
 
