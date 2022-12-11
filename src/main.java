@@ -131,45 +131,45 @@ public class main
  {
   Dictionary dict=new Dictionary();
   char option;
+  dict.loadWordMeaning();
 
-  System.out.print("             DICTIONARY       ");
+  System.out.print("\t\t\t\t ---------FAST DICTONARY--------- \t\t\t\t");
 
-  System.out.print("\nChoose an Option");
+  System.out.print("\n\t\t\t\t\t\tWhat do you want to do today ?\t\t\t\t\t");
   System.out.print("\n");
   do
   {
    System.out.println();
-   System.out.println("Press 'I', for inserting new word-meaning");
-   System.out.println("Press 'D', for deleting a word-meaning");
-   System.out.println("Press 'F', for finding a meaning");
-   System.out.println("Press 'T', to view a word tree");
-   System.out.println("Press 'E', to view the entire dictionary");
-   System.out.println("Press 'S', to save the dictionary");
-   System.out.println("Press 'L', to load a dictionary");
-   System.out.println("Press 'N', to view the enties in word tree");
-   System.out.println("Press 'X', to exit");
-   System.out.print("Press Enter to start");
-   read.FlushInput();
+   System.out.println("\t\t\t\t\t\t\tPress 'I' :\n\t\t\t\t\tTo insert a new word-meaning\t\t\t");
+   System.out.println("\t\t\t\t\t\t\tPress 'D' :\n\t\t\t\t\t To Delete a word-meaning\t\t\t");
+   System.out.println("\t\t\t\t\t\t\tPress 'F' :\n\t\t\t\t\t To find a word meaning\t\t\t");
+   System.out.println("\t\t\t\t\t\t\tPress 'T' :\n\t\t\t\t\t To view a word tree\t\t\t");
+   System.out.println("\t\t\t\t\t\t\tPress 'E' :\n\t\t\t\t\t To view the entire dictionary\t\t\t");
+   System.out.println("\t\t\t\t\t\t\tPress 'S' :\n\t\t\t\t\t To save the dictionary\t\t\t");
+   System.out.println("\t\t\t\t\t\t\tPress 'N' :\n\t\t\t\t\t To view the enties in word tree\t\t\t");
+   System.out.println("\t\t\t\t\t\t\tPress 'X' :\n\t\t\t\t\t\t\t To exit\t\t\t");
    System.out.println();
-   System.out.print("Enter an option: ");
+   System.out.print("\t\t\t\t\t\t Enter an option: ");
    option=read.GetChar();
    read.FlushInput();
 
    switch(option)
    {
-    case 'I': case 'i': dict.getWordMeaning(); break;
-    case 'D': case 'd': dict.deleteWordMeaning(); break;
+    case 'I': case 'i': dict.getWordMeaning();
+    dict.saveWordMeaning();
+    break;
+    case 'D': case 'd': dict.deleteWordMeaning();
+    dict.saveWordMeaning();
+    break;
     case 'F': case 'f': dict.findMeaning(); break;
     case 'T': case 't': dict.displayWordTree(); break;
     case 'E': case 'e': dict.displayWordList(); break;
-    case 'S': case 's': dict.saveWordMeaning(); break;
-    case 'L': case 'l': dict.loadWordMeaning(); break;
     case 'N': case 'n': dict.getNodeCount(); break;
-    case 'X': case 'x': System.out.println("Thank you for using The Dictionary, good-bye for now."); System.exit(0);
+    case 'X': case 'x': System.out.println("Exiting Dictionary...."); System.exit(0);
     default: System.out.println("Incorrect input, try again.");
    }
   }
   while (true);
- } 
+ }
 }
 
