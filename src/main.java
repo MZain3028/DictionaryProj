@@ -149,7 +149,7 @@ public class main
    System.out.println("\t\t\t\t\t\t\tPress 'N' :\n\t\t\t\t\t To view the enties in word tree\t\t\t");
    System.out.println("\t\t\t\t\t\t\tPress 'X' :\n\t\t\t\t\t\t\t To exit\t\t\t");
    System.out.println();
-   System.out.print("\t\t\t\t\t\t Enter an option: ");
+   System.out.print("\t\t\t\t\t\t Enter an option : ");
    option=read.GetChar();
    read.FlushInput();
 
