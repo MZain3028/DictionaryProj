@@ -6,7 +6,7 @@ class TreeNode
  String Meaning;
  TreeNode Left;
  TreeNode Right;
-
+ int index=0;
  public TreeNode(String Word,String Meaning)
  {
   this.Word=Word;
@@ -20,12 +20,7 @@ public class WordTree
 {
  TreeNode Root;
  String Name;
- static int index;
-
- static
- {
-  index=0;
- }
+ int index=0;
 
  public WordTree(String Name)
  {
