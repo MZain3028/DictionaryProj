@@ -1,6 +1,3 @@
- /* The WordTree file contains the construtors for the functionality
-    of the dictionary. It displays, finds,adds,and deletes tree nodes.
- */
 import java.io.*;
 
 class TreeNode
@@ -10,7 +7,6 @@ class TreeNode
  TreeNode Left;
  TreeNode Right;
 
- // constructor of tree node taking two parameters
  public TreeNode(String Word,String Meaning)
  {
   this.Word=Word;
@@ -20,7 +16,6 @@ class TreeNode
  }
 }
 
-//class of WordTree
 public class WordTree
 {
  TreeNode Root;
@@ -37,7 +32,6 @@ public class WordTree
   this.Name=Name;
  }
 
- //method for adding an item into the tree
  public void addEntry(String Word,String Meaning)
  {
   
@@ -60,10 +54,6 @@ public class WordTree
   }
  }
 
-
-
-
- //construtor for finding an element in a tree
  public String findEntry(String word) throws NullPointerException
  {
   TreeNode tempnode=new TreeNode("","");
@@ -94,7 +84,6 @@ public class WordTree
   }
  }
 
- //constructor for deleting an item in the tree
  public void deleteEntry(String word) throws NullPointerException
  {
   delete(Root,word);
@@ -119,7 +108,6 @@ public class WordTree
   
  }
 
- //constructor for displaying all the items in the tree
  public void displayTree()
  {
   display(Root);
@@ -138,7 +126,6 @@ public class WordTree
   }
  }
 
- //methods for saving a tree to a file
  public void saveTree(int ListSize) throws java.io.IOException
  {
   String List[][]=new String[ListSize][2];
@@ -176,9 +163,6 @@ public class WordTree
   outfile.close();
  }
 
-
- //methods for loading a file that contains a tree
-
  public void loadTree() throws java.io.IOException, NullPointerException {
   String filename = this.Name;
   filename = filename.concat(".txt");
@@ -197,42 +181,3 @@ public class WordTree
  }
 
 }
-
- //sample test runs done over here while making this file
- /*
- public static void main(String args[]) throws NullPointerException, java.io.IOException
- {
-  WordTree WordList[] = new WordTree[26];
-
-  String name;
-  char tempchar;
-  for (char namecount=0;namecount<=25;namecount++)
-  {
-   tempchar=(char)(namecount+97);
-   name=""+tempchar;
-   WordList[namecount]=new WordTree(name);
-   System.out.println(name+": "+name.length());
-  }   
-
-  String word,meaning;
-  System.out.println("Enter a word: ");
-  word=read.GetString();
-  System.out.println("Enter its meaning: ");
-  meaning=read.GetString();
-  tempchar=word.charAt(0);
-  if (tempchar>=65&&tempchar<=90)
-  {
-   tempchar=(int)(tempchar-65);
-   WordList[tempchar].addEntry(word,meaning);
-  }
-  else if (tempchar>=97&&tempchar<=122)
-  {
-   tempchar=(int)(tempchar-97);
-   WordList[tempchar].addEntry(word,meaning);
-  }
-  else
-   System.out.println("Enter a valid input please!!!");
- }
-*/
-
-

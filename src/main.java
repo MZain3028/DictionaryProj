@@ -1,7 +1,4 @@
-/*The driver class which contains the interface for the dictionary*/
-
 import java.io.*;
-//Class of the dictionary containing the array of 26 trees
 class Dictionary
 {
 
@@ -19,7 +16,6 @@ class Dictionary
   }
  }
 
- //the method for adding new word and meaning to the dictionary
  public void getWordMeaning() throws java.io.IOException
  {
   String word,meaning;
@@ -32,7 +28,6 @@ class Dictionary
   System.out.print("Word entered at location "+getIndex(word)+"\n");
  }
 
- //the method for deleting a word and meaning from the dicitonary
  public void deleteWordMeaning() throws NullPointerException, java.io.IOException
  {
   String word;
@@ -43,7 +38,6 @@ class Dictionary
   System.out.println(word + " deleted");
  }
 
- //The method for finding the meaning in the dicitonary
  public void findMeaning() throws NullPointerException, java.io.IOException
  {
   String word;
@@ -52,7 +46,6 @@ class Dictionary
   System.out.println("\n"+word+": "+WordList[getIndex(word)].findEntry(word));
  }
 
- //The method for displaying the correct words for a letter
  public void displayWordTree() throws java.io.IOException
  {
   char letter;
@@ -72,7 +65,6 @@ class Dictionary
    System.out.println("Not a valid input");
  }
 
- //displays the entire dictionary
  public void displayWordList()
  {
   System.out.println("The contents of the Dictionary are: ");
@@ -81,7 +73,6 @@ class Dictionary
     WordList[index].displayTree();     
  }
 
- //method for saving the dictionary
  public void saveWordMeaning() throws java.io.IOException
  {
 
@@ -92,7 +83,6 @@ class Dictionary
   System.out.println("Dictionary has been written to files.");
  }
 
- //method for loading a file into the dictionary
  public void loadWordMeaning() throws java.io.IOException
  {
   for (int index=0;index<=25;index++)
@@ -106,7 +96,6 @@ class Dictionary
    System.out.println("Dictionary has been loaded");
  }
 
- //method of getting the number of entries in the dictionary
  public void getNodeCount() throws java.io.IOException
  {
   System.out.println();
@@ -136,10 +125,6 @@ class Dictionary
  }
 }
 
-
-/*
-The Driver class file which contains the interface for the dictionary
-*/
 public class main
 {
  public static void main(String args[]) throws Exception
